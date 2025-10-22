@@ -1,21 +1,16 @@
 plugins {
   id("com.android.application")
   id("com.facebook.react")
-  // If you have Kotlin code in :app, uncomment the next line:
+  // Uncomment if you're using Kotlin code in the app
   // id("org.jetbrains.kotlin.android")
 }
 
-/**
- * React Native configuration
- */
+// React Native configuration
 react {
-  // Folders
   root = file("../")
   reactNativeDir = file("../node_modules/react-native")
   codegenDir = file("../node_modules/@react-native/codegen")
   cliFile = file("../node_modules/react-native/cli.js")
-
-  // Variants
   debuggableVariants = ["debug"]
 }
 
@@ -24,15 +19,8 @@ react {
  */
 def enableProguardInReleaseBuilds = false
 
-/**
- * JSC flavor (used when Hermes is disabled)
- */
 def jscFlavor = 'org.webkit:android-jsc:+'
 
-/**
- * Read Hermes flag safely from gradle.properties (hermesEnabled=true/false).
- * If not set, default to true (recommended).
- */
 def enableHermes = providers.gradleProperty("hermesEnabled").isPresent()
         ? providers.gradleProperty("hermesEnabled").get().toBoolean()
         : true
@@ -40,7 +28,6 @@ def enableHermes = providers.gradleProperty("hermesEnabled").isPresent()
 android {
   ndkVersion rootProject.ext.ndkVersion
   compileSdkVersion rootProject.ext.compileSdkVersion
-
   namespace "com.eventexplorer"
 
   defaultConfig {
@@ -65,7 +52,6 @@ android {
       signingConfig signingConfigs.debug
     }
     release {
-      // Caution! In production, generate your own keystore.
       signingConfig signingConfigs.debug
       minifyEnabled enableProguardInReleaseBuilds
       proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
@@ -74,12 +60,9 @@ android {
 }
 
 dependencies {
-  // Version is injected by the RN Gradle plugin
   implementation("com.facebook.react:react-android")
-
   implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.0.0")
 
-  // Flipper (make sure FLIPPER_VERSION is defined in gradle.properties)
   debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}")
   debugImplementation("com.facebook.flipper:flipper-network-plugin:${FLIPPER_VERSION}") {
     exclude group: 'com.squareup.okhttp3', module: 'okhttp'
@@ -94,5 +77,5 @@ dependencies {
 }
 
 // Autolinking
-apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle");
+apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle")
 applyNativeModulesAppBuildGradle(project)
