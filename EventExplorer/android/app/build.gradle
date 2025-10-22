@@ -1,6 +1,5 @@
 plugins {
   id("com.android.application")
-  // Use the RN plugin (resolved via settings.gradle includeBuild)
   id("com.facebook.react")
   // If you have Kotlin code in :app, uncomment the next line:
   // id("org.jetbrains.kotlin.android")

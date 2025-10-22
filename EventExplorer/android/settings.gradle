@@ -6,8 +6,6 @@ pluginManagement {
     // React Native's local Maven repo
     maven { url("$rootDir/../node_modules/react-native/android") }
   }
-  // Use the RN Gradle plugin from node_modules (do NOT add a version in build.gradle)
-  includeBuild("../node_modules/react-native-gradle-plugin")
 }
 
 dependencyResolutionManagement {
@@ -16,7 +14,7 @@ dependencyResolutionManagement {
     mavenCentral()
     google()
     maven { url("$rootDir/../node_modules/react-native/android") }
-    maven { url("https://www.jitpack.io") } // you had JitPack before
+    maven { url("https://www.jitpack.io") }
   }
 }
 
