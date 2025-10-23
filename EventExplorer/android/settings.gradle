@@ -3,6 +3,7 @@ pluginManagement {
     gradlePluginPortal()
     mavenCentral()
     google()
+    // Add local Maven path for React Native Gradle Plugin
     maven { url("$rootDir/../node_modules/react-native/android") }
   }
 }
@@ -12,6 +13,7 @@ dependencyResolutionManagement {
   repositories {
     mavenCentral()
     google()
+    // Ensure this local maven URL is here for React Native dependencies
     maven { url("$rootDir/../node_modules/react-native/android") }
     maven { url("https://www.jitpack.io") }
   }
