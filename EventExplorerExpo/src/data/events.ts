@@ -40,5 +40,45 @@ export const mockEvents: Event[] = [
     time: '11:00 AM',
     description: 'A gathering of food trucks offering diverse cuisines.',
     location: 'Chicago, IL'
+  },
+  {
+    id: '6',
+    title: 'Book Fair',
+    date: new Date('2023-12-25'),
+    time: '9:00 AM',
+    description: 'A fair featuring books from various publishers and authors.',
+    location: 'Seattle, WA'
+  },
+  {
+    id: '7',
+    title: 'Comedy Show',
+    date: new Date('2023-12-28'),
+    time: '8:00 PM',
+    description: 'Stand-up comedy performances by local comedians.',
+    location: 'Boston, MA'
+  },
+  {
+    id: '8',
+    title: 'Sports Event',
+    date: new Date('2024-01-05'),
+    time: '3:00 PM',
+    description: 'A local basketball game between rival teams.',
+    location: 'Miami, FL'
+  },
+  {
+    id: '9',
+    title: 'Coding Workshop',
+    date: new Date('2024-01-10'),
+    time: '10:00 AM',
+    description: 'Hands-on workshop on modern web development techniques.',
+    location: 'Denver, CO'
+  },
+  {
+    id: '10',
+    title: 'Jazz Concert',
+    date: new Date('2024-01-15'),
+    time: '7:00 PM',
+    description: 'An evening of jazz music with live performances.',
+    location: 'New Orleans, LA'
   }
 ];
