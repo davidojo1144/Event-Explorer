@@ -30,7 +30,7 @@ A React Native TypeScript app for exploring events and managing favorites with p
 
 ## Tech Stack
 
-- **React Native CLI** (not Expo)
+- **React Native CLI** and **React Native Expo** 
 - **TypeScript**
 - **React Navigation** (Stack Navigator)
 - **AsyncStorage** for local storage
@@ -41,7 +41,7 @@ A React Native TypeScript app for exploring events and managing favorites with p
 
 1. **Install dependencies:**
    ```bash
-   cd EventExplorer
+   cd EventExplorer or EventExplorerExpo
    npm install
    ```
 
