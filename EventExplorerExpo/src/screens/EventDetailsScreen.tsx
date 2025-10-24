@@ -49,7 +49,7 @@ const EventDetailsScreen: React.FC<EventDetailsScreenProps> = ({ route, navigati
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{event.title}</Text>
-      <Text style={styles.dateTime}>{event.date} at {event.time}</Text>
+      <Text style={styles.dateTime}>{event.date.toDateString()} at {event.time}</Text>
       <Text style={styles.description}>{event.description}</Text>
       <Text style={styles.location}>Location: {event.location}</Text>
       <TouchableOpacity style={styles.favoriteButton} onPress={toggleFavorite}>
