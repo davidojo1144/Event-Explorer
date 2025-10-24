@@ -1,5 +1,4 @@
 apply plugin: "com.android.application"
-apply plugin: "com.facebook.react"  // Revert to using this line
 
 // React Native configuration
 react {
@@ -20,7 +19,7 @@ def enableHermes = providers.gradleProperty("hermesEnabled").isPresent()
 
 android {
     ndkVersion rootProject.ext.ndkVersion
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdkVersion rootProject.ext.compileSdkVersion  // Ensure compileSdkVersion is correctly applied
     namespace "com.eventexplorer"
 
     defaultConfig {
