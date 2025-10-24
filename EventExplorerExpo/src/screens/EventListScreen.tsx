@@ -19,7 +19,7 @@ const EventListScreen: React.FC<EventListScreenProps> = ({ navigation }) => {
   const renderEvent = ({ item }: { item: Event }) => (
     <TouchableOpacity
       style={styles.eventCard}
-      onPress={() => navigation.navigate('EventDetails', { event: item })}
+      onPress={() => navigation.navigate('EventDetails', { eventId: item.id })}
     >
       <Text style={styles.title}>{item.title}</Text>
       <Text style={styles.dateTime}>{item.date.toDateString()} at {item.time}</Text>
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   },
   favoritesButton: {
     backgroundColor: '#007bff',
-    padding: 10,
+    padding: 13,
     margin: 10,
     borderRadius: 8,
     alignItems: 'center',

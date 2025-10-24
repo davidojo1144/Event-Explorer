@@ -44,7 +44,7 @@ const FavoritesScreen: React.FC<FavoritesScreenProps> = ({ navigation }) => {
   const renderFavorite = ({ item }: { item: Event }) => (
     <TouchableOpacity
       style={styles.eventCard}
-      onPress={() => navigation.navigate('EventDetails', { event: item })}
+      onPress={() => navigation.navigate('EventDetails', { eventId: item.id })}
     >
       <Text style={styles.title}>{item.title}</Text>
       <Text style={styles.dateTime}>{item.date.toDateString()} at {item.time}</Text>

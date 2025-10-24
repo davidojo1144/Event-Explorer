@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Event } from '../types/Event';
+import { mockEvents } from '../data/events';
 
 interface EventDetailsScreenProps {
   route: any;
@@ -9,7 +10,17 @@ interface EventDetailsScreenProps {
 }
 
 const EventDetailsScreen: React.FC<EventDetailsScreenProps> = ({ route, navigation }) => {
-  const { event } = route.params as { event: Event };
+  const { eventId } = route.params as { eventId: string };
+  const event = mockEvents.find((e: Event) => e.id === eventId);
+
+  if (!event) {
+    return (
+      <View style={styles.container}>
+        <Text>Event not found</Text>
+      </View>
+    );
+  }
+
   const [isFavorite, setIsFavorite] = useState(false);
 
   useEffect(() => {
