@@ -11,9 +11,9 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="EventList">
-        <Stack.Screen name="EventList" component={EventListScreen} options={{ title: 'Events' }} />
-        <Stack.Screen name="EventDetails" component={EventDetailsScreen} options={{ title: 'Event Details' }} />
-        <Stack.Screen name="Favorites" component={FavoritesScreen} options={{ title: 'Favorites' }} />
+        <Stack.Screen name="EventList" component={EventListScreen} options={{ title: 'Events', headerShown: false }} />
+        <Stack.Screen name="EventDetails" component={EventDetailsScreen} options={{ title: 'Event Details', headerShown: false }} />
+        <Stack.Screen name="Favorites" component={FavoritesScreen} options={{ title: 'Favorites', headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

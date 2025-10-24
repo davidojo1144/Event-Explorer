@@ -3,6 +3,7 @@ import { View, Text, FlatList, TouchableOpacity, StyleSheet, TextInput } from 'r
 import { Ionicons } from '@expo/vector-icons';
 import { Event } from '../types/Event';
 import { mockEvents } from '../data/events';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 interface EventListScreenProps {
   navigation: any;
@@ -36,7 +37,10 @@ const EventListScreen: React.FC<EventListScreenProps> = ({ navigation }) => {
   );
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView edges={['top', 'left', 'right']} style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.headerTitle}>Event List</Text>
+      </View>
       <View style={styles.searchContainer}>
         <Ionicons name="search" size={20} color="#666" style={styles.searchIcon} />
         <TextInput
@@ -59,7 +63,7 @@ const EventListScreen: React.FC<EventListScreenProps> = ({ navigation }) => {
         renderItem={renderEvent}
         contentContainerStyle={styles.list}
       />
-    </View>
+    </SafeAreaView>
   );
 };
 
