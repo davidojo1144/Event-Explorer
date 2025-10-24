@@ -76,9 +76,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#007bff',
     padding: 20,
     alignItems: 'center',
+    margin: 10,
+    borderRadius: 8,
   },
   headerTitle: {
-    fontSize: 24,
+    fontSize: 16,
     fontWeight: 'bold',
     color: '#fff',
   },

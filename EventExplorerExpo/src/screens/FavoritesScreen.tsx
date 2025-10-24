@@ -72,7 +72,7 @@ const FavoritesScreen: React.FC<FavoritesScreenProps> = ({ navigation }) => {
     <SafeAreaView edges={['top', 'left', 'right']} style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-          <Ionicons name="arrow-back" size={24} color="#fff" />
+          <Ionicons name="arrow-back" size={18} color="#fff" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Favorites</Text>
       </View>
@@ -101,6 +101,8 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: '#007bff',
     padding: 20,
+    margin: 10,
+    borderRadius: 8,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -108,7 +110,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   headerTitle: {
-    fontSize: 24,
+    fontSize: 16,
     fontWeight: 'bold',
     color: '#fff',
   },
