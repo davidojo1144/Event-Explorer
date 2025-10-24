@@ -23,23 +23,34 @@ const EventListScreen: React.FC<EventListScreenProps> = ({ navigation }) => {
       onPress={() => navigation.navigate('EventDetails', { eventId: item.id })}
     >
       <Text style={styles.title}>{item.title}</Text>
-      <Text style={styles.dateTime}>{item.date.toDateString()} at {item.time}</Text>
+      <View style={styles.dateTime}>
+        <Ionicons name="calendar-outline" size={16} color="#666" />
+        <Text style={styles.dateTimeText}>{item.date.toDateString()} at {item.time}</Text>
+      </View>
       <Text style={styles.description}>{item.description.substring(0, 100)}...</Text>
+      <View style={styles.location}>
+        <Ionicons name="location-outline" size={16} color="#666" />
+        <Text style={styles.locationText}>{item.location}</Text>
+      </View>
     </TouchableOpacity>
   );
 
   return (
     <View style={styles.container}>
-      <TextInput
-        style={styles.searchInput}
-        placeholder="Search events..."
-        value={searchQuery}
-        onChangeText={setSearchQuery}
-      />
+      <View style={styles.searchContainer}>
+        <Ionicons name="search" size={20} color="#666" style={styles.searchIcon} />
+        <TextInput
+          style={styles.searchInput}
+          placeholder="Search events..."
+          value={searchQuery}
+          onChangeText={setSearchQuery}
+        />
+      </View>
       <TouchableOpacity
         style={styles.favoritesButton}
         onPress={() => navigation.navigate('Favorites')}
       >
+        <Ionicons name="heart" size={20} color="#fff" style={styles.buttonIcon} />
         <Text style={styles.favoritesButtonText}>View Favorites</Text>
       </TouchableOpacity>
       <FlatList
@@ -57,6 +68,34 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f5f5f5',
   },
+  header: {
+    backgroundColor: '#007bff',
+    padding: 20,
+    alignItems: 'center',
+  },
+  headerTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
+  searchContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    margin: 10,
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: '#ccc',
+  },
+  searchIcon: {
+    paddingLeft: 10,
+  },
+  searchInput: {
+    flex: 1,
+    height: 40,
+    paddingHorizontal: 10,
+    backgroundColor: 'transparent',
+  },
   list: {
     padding: 10,
   },
@@ -64,42 +103,59 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: 15,
     marginBottom: 10,
-    borderRadius: 8,
-    elevation: 2,
+    borderRadius: 12,
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
   },
   title: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 5,
+    marginBottom: 8,
+    color: '#333',
   },
   dateTime: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 5,
+  },
+  dateTimeText: {
     fontSize: 14,
     color: '#666',
-    marginBottom: 5,
+    marginLeft: 5,
   },
   description: {
     fontSize: 14,
     color: '#333',
+    marginBottom: 5,
   },
-  searchInput: {
-    height: 40,
-    borderColor: '#ccc',
-    borderWidth: 1,
-    borderRadius: 8,
-    paddingHorizontal: 10,
-    margin: 10,
-    backgroundColor: '#fff',
+  location: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  locationText: {
+    fontSize: 14,
+    color: '#666',
+    marginLeft: 5,
   },
   favoritesButton: {
     backgroundColor: '#007bff',
-    padding: 13,
+    padding: 15,
     margin: 10,
     borderRadius: 8,
     alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
   favoritesButtonText: {
     color: '#fff',
     fontSize: 16,
+    marginLeft: 5,
+  },
+  buttonIcon: {
+    marginRight: 5,
   },
 });
 
